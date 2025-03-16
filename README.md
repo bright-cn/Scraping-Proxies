@@ -43,23 +43,23 @@ Bright Data 是一家屡获殊荣的领先代理提供商，服务全球超过 2
 ```python
 import sys
 
-# 将 '[your customerID]', 'residential', 和 '[your password]' 替换为您的 Bright Data 用户 ID、Zone 及密码
+# Replace '[your customerID]', 'residential', and '[your password]' with your actual Bright Data customer ID, zone, and password
 if sys.version_info[0] == 2:
-import six
-from six.moves.urllib import request
-opener = request.build_opener(
-request.ProxyHandler(
-{'http': 'http://brd-customer-[your customerID]-zone-residential:"[your password]"@brd.superproxy.io:33335',
-https': 'http://brd-customer-[your customerID]-zone-residential:"[your password]"@brd.superproxy.io:33335'}))
-print(opener.open('https://geo.brdtest.com/mygeo.json').read())
+    import six
+    from six.moves.urllib import request
+    opener = request.build_opener(
+        request.ProxyHandler(
+            {'http': 'http://brd-customer-[your customerID]-zone-residential:"[your password]"@brd.superproxy.io:33335',
+             'https': 'http://brd-customer-[your customerID]-zone-residential:"[your password]"@brd.superproxy.io:33335'}))
+    print(opener.open('https://geo.brdtest.com/mygeo.json').read())
 
 if sys.version_info[0] == 3:
-import urllib.request
-opener = urllib.request.build_opener(
-urllib.request.ProxyHandler(
-{'http': 'http://brd-customer-[your customerID]-zone-residential:"[your password]"@brd.superproxy.io:33335',
-https': 'http://brd-customer-[your customerID]-zone-residential:"[your password]"@brd.superproxy.io:33335'}))
-print(opener.open('https://geo.brdtest.com/mygeo.json').read())
+    import urllib.request
+    opener = urllib.request.build_opener(
+        urllib.request.ProxyHandler(
+            {'http': 'http://brd-customer-[your customerID]-zone-residential:"[your password]"@brd.superproxy.io:33335',
+             'https': 'http://brd-customer-[your customerID]-zone-residential:"[your password]"@brd.superproxy.io:33335'}))
+    print(opener.open('https://geo.brdtest.com/mygeo.json').read())
 ```
 
 ### Java
@@ -71,15 +71,15 @@ import org.apache.http.HttpHost;
 import org.apache.http.client.fluent.*;
 
 public class Example {
-public static void main(String[] args) throws Exception {
-// 将 '[your customerID]' 和 '[your password]' 替换为您的实际凭证
-HttpHost proxy = new HttpHost("brd.superproxy.io", 33335);
-String res = Executor.newInstance()
-.auth(proxy, "brd-customer-[your customerID]-zone-residential", "[your password]")
-.execute(Request.Get("https://geo.brdtest.com/mygeo.json").viaProxy(proxy))
-.returnContent().asString();
-System.out.println(res);
-}
+    public static void main(String[] args) throws Exception {
+        // Replace '[your customerID]' and '[your password]' with your actual credentials
+        HttpHost proxy = new HttpHost("brd.superproxy.io", 33335);
+        String res = Executor.newInstance()
+            .auth(proxy, "brd-customer-[your customerID]-zone-residential", "[your password]")
+            .execute(Request.Get("https://geo.brdtest.com/mygeo.json").viaProxy(proxy))
+            .returnContent().asString();
+        System.out.println(res);
+    }
 }
 ```
 
@@ -91,14 +91,14 @@ using System.Net;
 
 class Example
 {
-static void Main()
-{
-// 将 '[your customerID]' 和 '[your password]' 替换为您的实际凭证
-var client = new WebClient();
-client.Proxy = new WebProxy("brd.superproxy.io:33335");
-client.Proxy.Credentials = new NetworkCredential("brd-customer-[your customerID]-zone-residential", "[your password]");
-Console.WriteLine(client.DownloadString("https://geo.brdtest.com/mygeo.json"));
-}
+    static void Main()
+    {
+        // Replace '[your customerID]' and '[your password]' with your actual credentials
+        var client = new WebClient();
+        client.Proxy = new WebProxy("brd.superproxy.io:33335");
+        client.Proxy.Credentials = new NetworkCredential("brd-customer-[your customerID]-zone-residential", "[your password]");
+        Console.WriteLine(client.DownloadString("https://geo.brdtest.com/mygeo.json"));
+    }
 }
 ```
 

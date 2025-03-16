@@ -24,10 +24,10 @@ Bright Data 是一家屡获殊荣的领先代理提供商，服务全球超过 2
 ## 价格方案
 - **按量付费**：8.4 美元/GB，无需月度承诺。
 - **月度订阅**：
-- **69 GB**：7.14 美元/GB，499 美元/月。
-- **158 GB**：6.3 美元/GB，999 美元/月。
-- **339 GB**：5.88 美元/GB，1999 美元/月。
-- **企业方案**：可为大规模需求提供定制化解决方案。
+    - **69 GB**：7.14 美元/GB，499 美元/月。
+    - **158 GB**：6.3 美元/GB，999 美元/月。
+    - **339 GB**：5.88 美元/GB，1999 美元/月。
+    - **企业方案**：可为大规模需求提供定制化解决方案。
 
 [![Promo](https://github.com/bright-cn/LinkedIn-Scraper/blob/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://www.bright.cn/proxy-types)
 

@@ -1,6 +1,6 @@
 # Bright Data 的爬虫代理
 
-[![Promo](https://github.com/luminati-io/Rotating-Residential-Proxies/blob/main/50%25%20off%20promo (1).png)](https://www.bright.cn/proxy-types)
+[![Promo](https://github.com/bright-cn/Rotating-Residential-Proxies/raw/main/50%25%20off%20promo%20(1).png)](https://www.bright.cn/proxy-types)
 
 ## 关于 Bright Data
 Bright Data 是一家屡获殊荣的领先代理提供商，服务全球超过 20,000 名客户。凭借超过 1 亿个代理 IP、顶尖的技术，以及对任意国家、城市、运营商和 ASN 的精准定位能力，使得我们的代理服务成为开发者的首选。

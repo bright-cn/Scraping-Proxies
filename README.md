@@ -106,17 +106,17 @@ class Example
 
 ```node.js
 require('request-promise')({
-url: 'https://geo.brdtest.com/mygeo.json',
-proxy: 'http://brd-customer-[your customerID]-zone-residential:"[your password]"@brd.superproxy.io:33335',
+    url: 'https://geo.brdtest.com/mygeo.json',
+    proxy: 'http://brd-customer-[your customerID]-zone-residential:"[your password]"@brd.superproxy.io:33335',
 })
 .then(function(data){ console.log(data); },
-function(err){ console.error(err); });
+    function(err){ console.error(err); });
 ```
 
 ### Shell
 
 ```shell
-# 将 '[your customerID]' 和 '[your password]' 替换为您的实际凭证
+# Replace '[your customerID]' and '[your password]' with your actual credentials
 curl --proxy brd.superproxy.io:33335 --proxy-user brd-customer-[your customerID]-zone-residential:[your password] -k "https://geo.brdtest.com/mygeo.json"
 ```
 
@@ -140,10 +140,10 @@ curl --proxy brd.superproxy.io:33335 --proxy-user brd-customer-[your customerID]
 ## 价格方案
 - **按量付费**：8.4 美元/GB，无需月度承诺。
 - **月度订阅**：
-- **69 GB**：7.14 美元/GB，499 美元/月 + VAT。
-- **158 GB**：6.3 美元/GB，999 美元/月 + VAT。
-- **339 GB**：5.88 美元/GB，1999 美元/月 + VAT。
-- **企业方案**：可提供定制定价与套餐。
+    - **69 GB**：7.14 美元/GB，499 美元/月 + VAT。
+    - **158 GB**：6.3 美元/GB，999 美元/月 + VAT。
+    - **339 GB**：5.88 美元/GB，1999 美元/月 + VAT。
+    - **企业方案**：可提供定制定价与套餐。
 
 立即注册，您首次充值可享受最高 500 美元的同额赠金！
 
@@ -159,23 +159,23 @@ curl --proxy brd.superproxy.io:33335 --proxy-user brd-customer-[your customerID]
 ```python
 import sys
 
-# 将 '[your customerID]', 'mobile', 和 '[your password]' 替换为您的 Bright Data 用户 ID、Zone 及密码
+# Replace '[your customerID]', 'mobile', and '[your password]' with your actual Bright Data customer ID, zone, and password
 if sys.version_info[0] == 2:
-import six
-from six.moves.urllib import request
-opener = request.build_opener(
-request.ProxyHandler(
-{'http': 'http://brd-customer-[your customerID]-zone-mobile:"[your password]"@brd.superproxy.io:22225',
-https': 'http://brd-customer-[your customerID]-zone-mobile:"[your password]"@brd.superproxy.io:22225'}))
-print(opener.open('https://geo.brdtest.com/mygeo.json').read())
+    import six
+    from six.moves.urllib import request
+    opener = request.build_opener(
+        request.ProxyHandler(
+            {'http': 'http://brd-customer-[your customerID]-zone-mobile:"[your password]"@brd.superproxy.io:22225',
+             'https': 'http://brd-customer-[your customerID]-zone-mobile:"[your password]"@brd.superproxy.io:22225'}))
+    print(opener.open('https://geo.brdtest.com/mygeo.json').read())
 
 if sys.version_info[0] == 3:
-import urllib.request
-opener = urllib.request.build_opener(
-urllib.request.ProxyHandler(
-{'http': 'http://brd-customer-[your customerID]-zone-mobile:"[your password]"@brd.superproxy.io:22225',
-https': 'http://brd-customer-[your customerID]-zone-mobile:"[your password]"@brd.superproxy.io:22225'}))
-print(opener.open('https://geo.brdtest.com/mygeo.json').read())
+    import urllib.request
+    opener = urllib.request.build_opener(
+        urllib.request.ProxyHandler(
+            {'http': 'http://brd-customer-[your customerID]-zone-mobile:"[your password]"@brd.superproxy.io:22225',
+             'https': 'http://brd-customer-[your customerID]-zone-mobile:"[your password]"@brd.superproxy.io:22225'}))
+    print(opener.open('https://geo.brdtest.com/mygeo.json').read())
 ```
 
 ### Java
@@ -187,15 +187,15 @@ import org.apache.http.HttpHost;
 import org.apache.http.client.fluent.*;
 
 public class Example {
-public static void main(String[] args) throws Exception {
-// 将 '[your customerID]' 和 '[your password]' 替换为您的实际凭证
-HttpHost proxy = new HttpHost("brd.superproxy.io", 22225);
-String res = Executor.newInstance()
-.auth(proxy, "brd-customer-[your customerID]-zone-mobile", "[your password]")
-.execute(Request.Get("https://geo.brdtest.com/mygeo.json").viaProxy(proxy))
-.returnContent().asString();
-System.out.println(res);
-}
+    public static void main(String[] args) throws Exception {
+        // Replace '[your customerID]' and '[your password]' with your actual credentials
+        HttpHost proxy = new HttpHost("brd.superproxy.io", 22225);
+        String res = Executor.newInstance()
+            .auth(proxy, "brd-customer-[your customerID]-zone-mobile", "[your password]")
+            .execute(Request.Get("https://geo.brdtest.com/mygeo.json").viaProxy(proxy))
+            .returnContent().asString();
+        System.out.println(res);
+    }
 }
 ```
 
@@ -207,14 +207,14 @@ using System.Net;
 
 class Example
 {
-static void Main()
-{
-// 将 '[your customerID]' 和 '[your password]' 替换为您的实际凭证
-var client = new WebClient();
-client.Proxy = new WebProxy("brd.superproxy.io:22225");
-client.Proxy.Credentials = new NetworkCredential("brd-customer-[your customerID]-zone-mobile", "[your password]");
-Console.WriteLine(client.DownloadString("https://geo.brdtest.com/mygeo.json"));
-}
+    static void Main()
+    {
+        // Replace '[your customerID]' and '[your password]' with your actual credentials
+        var client = new WebClient();
+        client.Proxy = new WebProxy("brd.superproxy.io:22225");
+        client.Proxy.Credentials = new NetworkCredential("brd-customer-[your customerID]-zone-mobile", "[your password]");
+        Console.WriteLine(client.DownloadString("https://geo.brdtest.com/mygeo.json"));
+    }
 }
 ```
 
@@ -222,17 +222,17 @@ Console.WriteLine(client.DownloadString("https://geo.brdtest.com/mygeo.json"));
 
 ```node.js
 require('request-promise')({
-url: 'https://geo.brdtest.com/mygeo.json',
-proxy: 'http://brd-customer-[your customerID]-zone-mobile:"[your password]"@brd.superproxy.io:22225',
+    url: 'https://geo.brdtest.com/mygeo.json',
+    proxy: 'http://brd-customer-[your customerID]-zone-mobile:"[your password]"@brd.superproxy.io:22225',
 })
 .then(function(data){ console.log(data); },
-function(err){ console.error(err); });
+    function(err){ console.error(err); });
 ```
 
 ### Shell
 
 ```shell
-# 将 '[your customerID]' 和 '[your password]' 替换为您的实际凭证
+# Replace '[your customerID]' and '[your password]' with your actual credentials
 curl --proxy brd.superproxy.io:22225 --proxy-user brd-customer-[your customerID]-zone-mobile:[your password] -k "https://geo.brdtest.com/mygeo.json"
 ```
 
@@ -257,24 +257,24 @@ curl --proxy brd.superproxy.io:22225 --proxy-user brd-customer-[your customerID]
 ## 价格方案
 - **按量付费**：15 美元/GB（无月度承诺）。
 - **月度订阅 - 共享**：
-- **10 IP**：1.80 美元/IP，18 美元/月 + VAT。
-- **100 IP**：1.45 美元/IP，145 美元/月 + VAT。
-- **500 IP**：1.40 美元/IP，700 美元/月 + VAT。
-- **1,000 IP**：1.30 美元/IP，1300 美元/月 + VAT。
-- **企业方案**：适用于大规模数据采集需求的定制化解决方案。
+    - **10 IP**：1.80 美元/IP，18 美元/月 + VAT。
+    - **100 IP**：1.45 美元/IP，145 美元/月 + VAT。
+    - **500 IP**：1.40 美元/IP，700 美元/月 + VAT。
+    - **1,000 IP**：1.30 美元/IP，1300 美元/月 + VAT。
+    - **企业方案**：适用于大规模数据采集需求的定制化解决方案。
 
 - **月度订阅 - 专属**：
-- **10 IP**：3.50 美元/IP，35 美元/月 + VAT。
-- **100 IP**：2.75 美元/IP，275 美元/月 + VAT。
-- **500 IP**：2.60 美元/IP，1300 美元/月 + VAT。
-- **1,000 IP**：2.50 美元/IP，2500 美元/月 + VAT。
-- **企业方案**：适用于大规模数据采集需求的定制化解决方案。
+    - **10 IP**：3.50 美元/IP，35 美元/月 + VAT。
+    - **100 IP**：2.75 美元/IP，275 美元/月 + VAT。
+    - **500 IP**：2.60 美元/IP，1300 美元/月 + VAT。
+    - **1,000 IP**：2.50 美元/IP，2500 美元/月 + VAT。
+    - **企业方案**：适用于大规模数据采集需求的定制化解决方案。
 
 - **月度订阅 - 按量计费**：
-- 12.75 美元/GB，499 美元/月 + VAT。
-- 11.25 美元/GB，999 美元/月 + VAT。
-- 10.50 美元/GB，1999 美元/月 + VAT。
-- **企业方案**：适用于大规模数据采集需求的定制化解决方案。
+    - 12.75 美元/GB，499 美元/月 + VAT。
+    - 11.25 美元/GB，999 美元/月 + VAT。
+    - 10.50 美元/GB，1999 美元/月 + VAT。
+    - **企业方案**：适用于大规模数据采集需求的定制化解决方案。
 
 ## 开始使用 ISP 代理
 1. **免费试用**：无需信用卡。
@@ -288,23 +288,23 @@ curl --proxy brd.superproxy.io:22225 --proxy-user brd-customer-[your customerID]
 ```python
 import sys
 
-# 将 '[your customerID]', 'isp', 和 '[your password]' 替换为您的 Bright Data 用户 ID、Zone 及密码
+# Replace '[your customerID]', 'isp', and '[your password]' with your actual Bright Data customer ID, zone, and password
 if sys.version_info[0] == 2:
-import six
-from six.moves.urllib import request
-opener = request.build_opener(
-request.ProxyHandler(
-{'http': 'http://brd-customer-[your customerID]-zone-isp:"[your password]"@brd.superproxy.io:22225',
-https': 'http://brd-customer-[your customerID]-zone-isp:"[your password]"@brd.superproxy.io:22225'}))
-print(opener.open('https://geo.brdtest.com/mygeo.json').read())
+    import six
+    from six.moves.urllib import request
+    opener = request.build_opener(
+        request.ProxyHandler(
+            {'http': 'http://brd-customer-[your customerID]-zone-isp:"[your password]"@brd.superproxy.io:22225',
+             'https': 'http://brd-customer-[your customerID]-zone-isp:"[your password]"@brd.superproxy.io:22225'}))
+    print(opener.open('https://geo.brdtest.com/mygeo.json').read())
 
 if sys.version_info[0] == 3:
-import urllib.request
-opener = urllib.request.build_opener(
-urllib.request.ProxyHandler(
-{'http': 'http://brd-customer-[your customerID]-zone-isp:"[your password]"@brd.superproxy.io:22225',
-https': 'http://brd-customer-[your customerID]-zone-isp:"[your password]"@brd.superproxy.io:22225'}))
-print(opener.open('https://geo.brdtest.com/mygeo.json').read())
+    import urllib.request
+    opener = urllib.request.build_opener(
+        urllib.request.ProxyHandler(
+            {'http': 'http://brd-customer-[your customerID]-zone-isp:"[your password]"@brd.superproxy.io:22225',
+             'https': 'http://brd-customer-[your customerID]-zone-isp:"[your password]"@brd.superproxy.io:22225'}))
+    print(opener.open('https://geo.brdtest.com/mygeo.json').read())
 ```
 
 ### Java
@@ -316,15 +316,15 @@ import org.apache.http.HttpHost;
 import org.apache.http.client.fluent.*;
 
 public class Example {
-public static void main(String[] args) throws Exception {
-// 将 '[your customerID]' 和 '[your password]' 替换为您的实际凭证
-HttpHost proxy = new HttpHost("brd.superproxy.io", 22225);
-String res = Executor.newInstance()
-.auth(proxy, "brd-customer-[your customerID]-zone-isp", "[your password]")
-.execute(Request.Get("https://geo.brdtest.com/mygeo.json").viaProxy(proxy))
-.returnContent().asString();
-System.out.println(res);
-}
+    public static void main(String[] args) throws Exception {
+        // Replace '[your customerID]' and '[your password]' with your actual credentials
+        HttpHost proxy = new HttpHost("brd.superproxy.io", 22225);
+        String res = Executor.newInstance()
+            .auth(proxy, "brd-customer-[your customerID]-zone-isp", "[your password]")
+            .execute(Request.Get("https://geo.brdtest.com/mygeo.json").viaProxy(proxy))
+            .returnContent().asString();
+        System.out.println(res);
+    }
 }
 ```
 
@@ -336,14 +336,14 @@ using System.Net;
 
 class Example
 {
-static void Main()
-{
-// 将 '[your customerID]' 和 '[your password]' 替换为您的实际凭证
-var client = new WebClient();
-client.Proxy = new WebProxy("brd.superproxy.io:22225");
-client.Proxy.Credentials = new NetworkCredential("brd-customer-[your customerID]-zone-isp", "[your password]");
-Console.WriteLine(client.DownloadString("https://geo.brdtest.com/mygeo.json"));
-}
+    static void Main()
+    {
+        // Replace '[your customerID]' and '[your password]' with your actual credentials
+        var client = new WebClient();
+        client.Proxy = new WebProxy("brd.superproxy.io:22225");
+        client.Proxy.Credentials = new NetworkCredential("brd-customer-[your customerID]-zone-isp", "[your password]");
+        Console.WriteLine(client.DownloadString("https://geo.brdtest.com/mygeo.json"));
+    }
 }
 ```
 
@@ -351,17 +351,17 @@ Console.WriteLine(client.DownloadString("https://geo.brdtest.com/mygeo.json"));
 
 ```node.js
 require('request-promise')({
-url: 'https://geo.brdtest.com/mygeo.json',
-proxy: 'http://brd-customer-[your customerID]-zone-isp:"[your password]"@brd.superproxy.io:22225',
+    url: 'https://geo.brdtest.com/mygeo.json',
+    proxy: 'http://brd-customer-[your customerID]-zone-isp:"[your password]"@brd.superproxy.io:22225',
 })
 .then(function(data){ console.log(data); },
-function(err){ console.error(err); });
+    function(err){ console.error(err); });
 ```
 
 ### Shell
 
 ```shell
-# 将 '[your customerID]' 和 '[your password]' 替换为您的实际凭证
+# Replace '[your customerID]' and '[your password]' with your actual credentials
 curl --proxy brd.superproxy.io:22225 --proxy-user brd-customer-[your customerID]-zone-isp:[your password] -k "https://geo.brdtest.com/mygeo.json"
 ```
 
@@ -386,24 +386,24 @@ curl --proxy brd.superproxy.io:22225 --proxy-user brd-customer-[your customerID]
 ## 价格方案
 - **按量付费**：0.6 美元/GB，无需月度承诺。
 - **月度订阅 - 共享**：
-- **10 IP**：1.40 美元/IP，14 美元/月 + VAT。
-- **100 IP**：1.00 美元/IP，100 美元/月 + VAT。
-- **500 IP**：0.95 美元/IP，475 美元/月 + VAT。
-- **1,000 IP**：0.90 美元/IP，900 美元/月 + VAT。
-- **企业方案**：可针对大规模数据采集提供定制化解决方案。
+    - **10 IP**：1.40 美元/IP，14 美元/月 + VAT。
+    - **100 IP**：1.00 美元/IP，100 美元/月 + VAT。
+    - **500 IP**：0.95 美元/IP，475 美元/月 + VAT。
+    - **1,000 IP**：0.90 美元/IP，900 美元/月 + VAT。
+    - **企业方案**：可针对大规模数据采集提供定制化解决方案。
 
 - **月度订阅 - 专属**：
-- **10 IP**：2.20 美元/IP，22 美元/月 + VAT。
-- **100 IP**：1.70 美元/IP，170 美元/月 + VAT。
-- **500 IP**：1.50 美元/IP，750 美元/月 + VAT。
-- **1,000 IP**：1.30 美元/IP，1300 美元/月 + VAT。
-- **企业方案**：可针对大规模数据采集提供定制化解决方案。
+    - **10 IP**：2.20 美元/IP，22 美元/月 + VAT。
+    - **100 IP**：1.70 美元/IP，170 美元/月 + VAT。
+    - **500 IP**：1.50 美元/IP，750 美元/月 + VAT。
+    - **1,000 IP**：1.30 美元/IP，1300 美元/月 + VAT。
+    - **企业方案**：可针对大规模数据采集提供定制化解决方案。
 
 - **月度订阅 - 按量计费**：
-- 0.51 美元/GB，499 美元/月 + VAT。
-- 0.45 美元/GB，999 美元/月 + VAT。
-- 0.42 美元/GB，1999 美元/月 + VAT。
-- **企业方案**：可针对大规模数据采集提供定制化解决方案。
+    - 0.51 美元/GB，499 美元/月 + VAT。
+    - 0.45 美元/GB，999 美元/月 + VAT。
+    - 0.42 美元/GB，1999 美元/月 + VAT。
+    - **企业方案**：可针对大规模数据采集提供定制化解决方案。
 
 立即注册并获得首次充值同额赠金，最高可达 500 美元！
 
@@ -419,23 +419,23 @@ curl --proxy brd.superproxy.io:22225 --proxy-user brd-customer-[your customerID]
 ```python
 import sys
 
-# 将 '[your customerID]', 'datacenter', 和 '[your password]' 替换为您的 Bright Data 用户 ID、Zone 及密码
+# Replace '[your customerID]', 'datacenter', and '[your password]' with your actual Bright Data customer ID, zone, and password
 if sys.version_info[0] == 2:
-import six
-from six.moves.urllib import request
-opener = request.build_opener(
-request.ProxyHandler(
-{'http': 'http://brd-customer-[your customerID]-zone-datacenter:"[your password]"@brd.superproxy.io:22225',
-https': 'http://brd-customer-[your customerID]-zone-datacenter:"[your password]"@brd.superproxy.io:22225'}))
-print(opener.open('https://geo.brdtest.com/mygeo.json').read())
+    import six
+    from six.moves.urllib import request
+    opener = request.build_opener(
+        request.ProxyHandler(
+            {'http': 'http://brd-customer-[your customerID]-zone-datacenter:"[your password]"@brd.superproxy.io:22225',
+             'https': 'http://brd-customer-[your customerID]-zone-datacenter:"[your password]"@brd.superproxy.io:22225'}))
+    print(opener.open('https://geo.brdtest.com/mygeo.json').read())
 
 if sys.version_info[0] == 3:
-import urllib.request
-opener = urllib.request.build_opener(
-urllib.request.ProxyHandler(
-{'http': 'http://brd-customer-[your customerID]-zone-datacenter:"[your password]"@brd.superproxy.io:22225',
-https': 'http://brd-customer-[your customerID]-zone-datacenter:"[your password]"@brd.superproxy.io:22225'}))
-print(opener.open('https://geo.brdtest.com/mygeo.json').read())
+    import urllib.request
+    opener = urllib.request.build_opener(
+        urllib.request.ProxyHandler(
+            {'http': 'http://brd-customer-[your customerID]-zone-datacenter:"[your password]"@brd.superproxy.io:22225',
+             'https': 'http://brd-customer-[your customerID]-zone-datacenter:"[your password]"@brd.superproxy.io:22225'}))
+    print(opener.open('https://geo.brdtest.com/mygeo.json').read())
 ```
 
 ### Java
@@ -447,15 +447,15 @@ import org.apache.http.HttpHost;
 import org.apache.http.client.fluent.*;
 
 public class Example {
-public static void main(String[] args) throws Exception {
-// 将 '[your customerID]' 和 '[your password]' 替换为您的实际凭证
-HttpHost proxy = new HttpHost("brd.superproxy.io", 22225);
-String res = Executor.newInstance()
-.auth(proxy, "brd-customer-[your customerID]-zone-datacenter", "[your password]")
-.execute(Request.Get("https://geo.brdtest.com/mygeo.json").viaProxy(proxy))
-.returnContent().asString();
-System.out.println(res);
-}
+    public static void main(String[] args) throws Exception {
+        // Replace '[your customerID]' and '[your password]' with your actual credentials
+        HttpHost proxy = new HttpHost("brd.superproxy.io", 22225);
+        String res = Executor.newInstance()
+            .auth(proxy, "brd-customer-[your customerID]-zone-datacenter", "[your password]")
+            .execute(Request.Get("https://geo.brdtest.com/mygeo.json").viaProxy(proxy))
+            .returnContent().asString();
+        System.out.println(res);
+    }
 }
 ```
 
@@ -467,14 +467,14 @@ using System.Net;
 
 class Example
 {
-static void Main()
-{
-// 将 '[your customerID]' 和 '[your password]' 替换为您的实际凭证
-var client = new WebClient();
-client.Proxy = new WebProxy("brd.superproxy.io:22225");
-client.Proxy.Credentials = new NetworkCredential("brd-customer-[your customerID]-zone-datacenter", "[your password]");
-Console.WriteLine(client.DownloadString("https://geo.brdtest.com/mygeo.json"));
-}
+    static void Main()
+    {
+        // Replace '[your customerID]' and '[your password]' with your actual credentials
+        var client = new WebClient();
+        client.Proxy = new WebProxy("brd.superproxy.io:22225");
+        client.Proxy.Credentials = new NetworkCredential("brd-customer-[your customerID]-zone-datacenter", "[your password]");
+        Console.WriteLine(client.DownloadString("https://geo.brdtest.com/mygeo.json"));
+    }
 }
 ```
 
@@ -482,17 +482,17 @@ Console.WriteLine(client.DownloadString("https://geo.brdtest.com/mygeo.json"));
 
 ```node.js
 require('request-promise')({
-url: 'https://geo.brdtest.com/mygeo.json',
-proxy: 'http://brd-customer-[your customerID]-zone-datacenter:"[your password]"@brd.superproxy.io:22225',
-})
+    url: 'https://geo.brdtest.com/mygeo.json',
+    proxy: 'http://brd-customer-[your customerID]-zone-datacenter:"[your password]"@brd.superproxy.io:22225',
+    })
 .then(function(data){ console.log(data); },
-function(err){ console.error(err); });
+    function(err){ console.error(err); });
 ```
 
 ### Shell
 
 ```shell
-# 将 '[your customerID]' 和 '[your password]' 替换为您的实际凭证
+# Replace '[your customerID]' and '[your password]' with your actual credentials
 curl --proxy brd.superproxy.io:22225 --proxy-user brd-customer-[your customerID]-zone-residential:[your password] -k "https://geo.brdtest.com/mygeo.json"
 ```
 
